@@ -1,4 +1,5 @@
 # Shopping Assistant Agent - Kaggle Agents Intensive Capstone
+### *Your AI-powered personal shopping concierge that researches, reviews, and recommends.*
 
 ## 1. The Problem: Why Shopping is Exhausting
 We've all been there. You want to buy a new laptop or a pair of headphones. You start by Googling "best gaming laptop 2024". Then you open 10 tabs to check prices. Then you go to Reddit to see what *actual* people are saying because you don't trust the sponsored articles. Finally, you watch three 20-minute YouTube reviews to make sure the screen doesn't wobble.
