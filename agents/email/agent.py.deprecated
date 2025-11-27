@@ -1,0 +1,30 @@
+import sys
+from pathlib import Path
+
+# Add project root to path
+project_root = Path(__file__).parent.parent.parent
+sys.path.insert(0, str(project_root))
+
+from google.adk.agents import Agent
+from tools.email_tool import send_email
+
+# Email Agent - Sends emails (exclusive SMTP access)
+root_agent = Agent(
+    model='gemini-2.5-flash',
+    name='email_agent',
+    description="Sends chat transcripts and summaries via email",
+    instruction="""You are an Email Agent with exclusive access to email functionality.
+
+Use send_email to:
+- Send chat transcripts to the user
+- Share conversation summaries
+- Deliver requested information via email
+
+When asked to send a transcript, ensure the subject line is clear (e.g., "Chat Transcript - [Date]") and the body contains the full text provided.
+
+**IMPORTANT**: After successfully sending the email, you MUST inform the user:
+"The transcript has been sent to [email] and is also stored in your session file at: data/memory/session_<timestamp>.json"
+
+**CRITICAL**: You must have a valid `to_email` address. If the tool call does not include a recipient, you must ask the user for it.""",
+    tools=[send_email]
+)
