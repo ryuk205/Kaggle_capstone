@@ -7,7 +7,19 @@ By the time you're done, you've spent three hours and you're more confused than 
 
 **I built the Shopping Assistant Agent to fix this.** It's not just a search engine; it's a concierge that does the grunt work for you. It researches, watches videos, reads Reddit threads, and gives you a simple, backed-up recommendation.
 
-## 2. How It Works
+## 2. Why Agents?
+You might ask: *"Why not just use ChatGPT or a simple script?"*
+
+The problem with a simple script is that it's brittle. If the Google search fails, the script crashes. If the user asks a follow-up question, the script has no memory.
+
+The problem with a single LLM call is that it can't browse the live web effectively or browse *deeply*. It might hallucinate a product that doesn't exist.
+
+**Agents are the right solution because:**
+1.  **Specialization:** Just like in a real company, you don't want your CEO (Chat Agent) doing the janitorial work. By splitting tasks into specialized agents (Search, Reddit, YouTube), each one can be prompted and optimized for its specific job.
+2.  **Resilience:** If the Reddit agent finds no results, the system doesn't fail—it just reports that and relies on the other sources.
+3.  **Tool Use:** Agents can use tools (like a calculator or an API) to get accurate data, whereas a raw LLM is just guessing next tokens.
+
+## 3. How It Works
 Think of the Shopping Assistant as a team of experts working for you. When you ask for a recommendation, it doesn't just guess. It orchestrates a team of specialized AI agents to find the answer.
 
 ### The "Team" (Architecture)
@@ -25,14 +37,14 @@ I used a **Hub-and-Spoke Orchestrator Pattern** to keep things organized:
 -   **It Delivers:** Can email you a full transcript of its research so you can read it later.
 -   **It Knows Where You Are:** Automatically detects your location to give you local currency and availability.
 
-## 3. Technical Highlights
+## 4. Technical Highlights
 Building this wasn't just about chaining prompts. Here are some of the cool technical details:
 
 -   **Powered by Gemini 2.5 Flash:** I chose this model because it's fast and smart enough to handle complex reasoning without keeping the user waiting.
 -   **Smart Batching:** To make the agent feel snappy, I implemented a "Session Manager" that batches initialization tasks (like loading memory and detecting location) so they happen in parallel. This cut startup time by ~50%.
 -   **Privacy First:** Location data is used for context but never saved to disk.
 
-## 4. A Typical Conversation
+## 5. A Typical Conversation
 **Me:** "I'm looking for a noise-cancelling headset for travel. Budget is around $300."
 
 **Agent:** *Thinking...*
@@ -47,17 +59,17 @@ Building this wasn't just about chaining prompts. Here are some of the cool tech
 
 **Agent:** *Sends email transcript.*
 
-## 5. Challenges & Lessons Learned
+## 6. Challenges & Lessons Learned
 This project taught me a lot about the nuances of AI agents:
 -   **Herding Cats:** Getting multiple agents to talk to each other without getting confused was tricky. I had to refine the system prompts to ensure clear hand-offs.
 -   **Link Rot:** AI models love to hallucinate links or break them. I had to add specific instructions (and a bit of code) to ensure YouTube links always opened correctly in new tabs.
 -   **Speed vs. Accuracy:** Balancing the depth of research with response time is an art. I learned that sometimes a "good enough" answer fast is better than a perfect answer that takes 2 minutes.
 
-## 6. What's Next?
+## 7. What's Next?
 I'm not done yet. In the future, I'd love to add:
 -   **Price Alerts:** A background agent that watches for price drops.
 -   **One-Click Buy:** Integration with shopping carts.
 -   **Voice Mode:** So I can ask for advice while driving.
 
-## 7. Conclusion
+## 8. Conclusion
 The Shopping Assistant Agent is my attempt to take the "work" out of homework. It demonstrates how AI can be more than just a chatbot—it can be a useful tool that interacts with the real world to save us time.
