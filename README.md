@@ -1,7 +1,11 @@
 # Shopping Assistant Agent (Google-Kaggle Capstone)
 
 **Track:** Concierge Agents
+![alt text](Images/Thumbnails/2.png)
 
+![alt text](Images/Thumbnails/1.png)
+
+![alt text](Images/Thumbnails/3.png)
 ## Problem Statement
 Shopping for products often involves tedious research across multiple platforms: checking specs on Google, reading user reviews on Reddit, watching video reviews on YouTube, and comparing prices. This process is time-consuming and disjointed. The **Shopping Assistant Agent** solves this by acting as a unified concierge that autonomously researches products across these sources, synthesizes the information, and even emails a transcript to the user, saving hours of manual work.
 
@@ -47,10 +51,31 @@ The system follows a **Hub-and-Spoke Orchestrator Pattern**:
 5.  **Action:** Agent offers to email the research.
 6.  **Completion:** Transcript sent to user's email.
 
+![alt text](<Images/Demo/Screenshot 2025-11-28 080210.png>)
+
+![alt text](<Images/Demo/Screenshot 2025-11-28 080233.png>)
+
+![alt text](<Images/Demo/Screenshot 2025-11-28 080317.png>)
+
+![alt text](<Images/Demo/Screenshot 2025-11-28 080429.png>)
+
+![alt text](<Images/Demo/Screenshot 2025-11-28 080456.png>)
+
+![alt text](<Images/Demo/Screenshot 2025-11-28 080522.png>)
+
+![alt text](<Images/Demo/Screenshot 2025-11-28 080522.png>)
+
+![alt text](<Images/Demo/Screenshot 2025-11-28 081005.png>)
+
+![alt text](<Images/Demo/Screenshot 2025-11-28 081116.png>)
+
+
+
 ## Evaluation Notes
 - **Optimization:** Implemented batching to reduce API calls by ~50% (see `walkthrough.md`).
 - **Privacy:** Location data is cached in-memory only and not persisted to disk.
 - **Scalability:** The orchestrator pattern allows adding new specialized agents (e.g., Amazon price checker) without rewriting the core logic.
+
 
 ## Setup & Installation
 
@@ -67,8 +92,8 @@ The system follows a **Hub-and-Spoke Orchestrator Pattern**:
     ```ini
     GOOGLE_API_KEY=... (Required for Gemini)
     YOUTUBE_API_KEY=... (Optional)
-    SMTP_USERNAME=... (Optional for email)
-    SMTP_PASSWORD=... (Optional for email)
+    SMTP_USERNAME=... (Optional for email){Use email id to send the transcript}
+    SMTP_PASSWORD=... (Optional for email){Use app password}
     ```
 
 3.  **Run the Agent**:
