@@ -55,6 +55,9 @@ The system follows a **Hub-and-Spoke Orchestrator Pattern**:
 ## Setup & Installation
 
 1.  **Install Dependencies**:
+    > [!IMPORTANT]
+    > Please ensure your environment is properly set up (e.g., using a virtual environment) before running the installation command. The dependencies may not install correctly otherwise.
+
     ```bash
     pip install -r requirements.txt
     ```
